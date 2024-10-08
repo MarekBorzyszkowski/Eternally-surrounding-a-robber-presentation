@@ -36,7 +36,7 @@
 
 \begin{document}
 
-\tikzset{vertex/.style={circle, draw=black, radius=1cm}}
+\tikzset{vertex/.style={circle, draw=black, inner sep=0pt, minimum size=0.6cm, text width=0.7cm, align=center}}
 \tikzset{cop_vertex/.style={vertex, fill=blue!50}}
 \tikzset{rob_vertex/.style={vertex, fill=red!50}}
 \tikzset{cop_rob_vertex/.style={vertex, fill=green!50}}
@@ -613,9 +613,9 @@ W grze można wyróżnić 2 fazy:
                         \node[cop_vertex] (v4) at (4,1) {4};
                         \node[cop_vertex] (v5) at (3,2) {5};
                         \node[cop_vertex] (v6) at (1,2) {6};
-                        \node[rob_vertex] (v7) at (2,1) {7 y};
+                        \node[rob_vertex] (v7) at (2,1) {7 $y$};
                         \node[cop_vertex] (v8) at (5,2) {8};
-                        \node[vertex] (v9) at (5,0) {9 x};
+                        \node[vertex] (v9) at (5,0) {9 $x$};
                         
                         \draw[edge] (v1)--(v7);
                         \draw[edge] (v2)--(v7);
@@ -643,7 +643,7 @@ W grze można wyróżnić 2 fazy:
         \renewcommand{\qedsymbol}{}
         Prezydent jest na wierzchołku z ochroniarzem oraz jest otoczona przez ochroniarzy.
         \onslide<2->{
-        W takiej sytuacji istanieje ścieżka $v_1, v_2,...,v_n$ w $G$, że $v_1$ jest okupowane przez prezydenta, a $v_n = x$.
+        W takiej sytuacji istanieje ścieżka $v_1, v_2,\dots,v_n$ w $G$, że $v_1$ jest okupowane przez prezydenta, a $v_n = x$.
         Niech $b_i$ oznacza ochroniarza na $v_i$. Podczas pierwszej tury ochroniarzy, ochroniarze $b_i$ dla $1\le i \le n-1$ przejdą z $v_i$ na $v_{i+1}$.
         }
         \onslide<3->{
@@ -661,8 +661,8 @@ W grze można wyróżnić 2 fazy:
                         \node[cop_vertex] (v5) at (3,2) {5};
                         \node[cop_vertex] (v6) at (1,2) {6};
                         \node[cop_rob_vertex] (v7) at (2,1) {7};
-                        \node[vertex] (v8) at (5,2) {8 x};
-                        \node[vertex] (v9) at (5,0) {9 y};
+                        \node[vertex] (v8) at (5,2) {8 $x$};
+                        \node[vertex] (v9) at (5,0) {9 $y$};
                         
                         \draw[edge] (v1)--(v7);
                         \draw[edge] (v2)--(v7);
@@ -690,9 +690,9 @@ W grze można wyróżnić 2 fazy:
                             \node[cop_vertex] (v4) at (4,1) {4};
                             \node[cop_vertex] (v5) at (3,2) {5};
                             \node[cop_vertex] (v6) at (1,2) {6};
-                            \node[rob_vertex] (v7) at (2,1) {7 x};
+                            \node[rob_vertex] (v7) at (2,1) {7 $x$};
                             \node[cop_vertex] (v8) at (5,2) {8};
-                            \node[vertex] (v9) at (5,0) {9 y};
+                            \node[vertex] (v9) at (5,0) {9 $y$};
                             
                             \draw[edge] (v1)--(v7);
                             \draw[edge] (v2)--(v7);
@@ -731,12 +731,12 @@ W grze można wyróżnić 2 fazy:
                         \node[cop_vertex] (v1) at (0,1) {1};
                         \node[cop_vertex] (v2) at (1,0) {2};
                         \node[cop_vertex] (v3) at (3,0) {3};
-                        \node[vertex] (v4) at (4,1) {4 x};
+                        \node[vertex] (v4) at (4,1) {4 $x$};
                         \node[cop_vertex] (v5) at (3,2) {5};
                         \node[cop_vertex] (v6) at (1,2) {6};
                         \node[cop_rob_vertex] (v7) at (2,1) {7};
                         \node[cop_vertex] (v8) at (5,2) {8};
-                        \node[vertex] (v9) at (5,0) {9 y};
+                        \node[vertex] (v9) at (5,0) {9 $y$};
                         
                         \draw[edge] (v1)--(v7);
                         \draw[edge] (v2)--(v7);
@@ -764,9 +764,9 @@ W grze można wyróżnić 2 fazy:
                             \node[cop_vertex] (v4) at (4,1) {4};
                             \node[cop_vertex] (v5) at (3,2) {5};
                             \node[cop_vertex] (v6) at (1,2) {6};
-                            \node[rob_vertex] (v7) at (2,1) {7 x};
+                            \node[rob_vertex] (v7) at (2,1) {7 $x$};
                             \node[cop_vertex] (v8) at (5,2) {8};
-                            \node[vertex] (v9) at (5,0) {9 y};
+                            \node[vertex] (v9) at (5,0) {9 $y$};
                             
                             \draw[edge] (v1)--(v7);
                             \draw[edge] (v2)--(v7);
@@ -788,6 +788,222 @@ W grze można wyróżnić 2 fazy:
             \end{columns}
         \end{example}  
     \end{proof}
+\end{frame}
+
+\begin{frame}{Ochroniarze i prezydent}
+    \begin{proof}[Dowód cd. Przypadek 4.]
+        \renewcommand{\qedsymbol}{}
+        Prezydent jest na wierzchołku bez ochroniarzem oraz jeden z sąsiadujących wierzchołków nie ma ochroniarza. Bez straty ogólności załóżmy że prezydent jest na $x$ i sąsiaduje z $y$.
+        Ponieważ $y$ nie jest liściem, istnieje wierzchołek $y\prime$ mający ochroniarza oraz sąsiadujący z $y$.  
+        \onslide<3>{
+            W pierwszej turze ochroniarzy, ochroniarz z $y\prime$ przejdzie na $y$ co skutkuje okrążeniem prezydenta\dots
+        }
+        \begin{example}
+            \begin{columns}
+                \column{.5\textwidth}
+                    \centering
+                    \begin{tikzpicture}
+                        \node[cop_vertex] (v1) at (0,1) {1};
+                        \node[cop_vertex] (v2) at (1,0) {2};
+                        \node[cop_vertex] (v3) at (3,0) {3};
+                        \node[vertex] (v4) at (4,1) {4 $y$};
+                        \node[cop_vertex] (v5) at (3,2) {5};
+                        \node[cop_vertex] (v6) at (1,2) {6};
+                        \node[rob_vertex] (v7) at (2,1) {7 $x$};
+                        \node[cop_vertex] (v8) at (5,2) {8};
+                        \node[cop_vertex] (v9) at (5,0) {9 $y\prime$};
+                        
+                        \draw[edge] (v1)--(v7);
+                        \draw[edge] (v2)--(v7);
+                        \draw[edge] (v3)--(v7);
+                        \draw[edge] (v4)--(v7);
+                        \draw[edge] (v5)--(v7);
+                        \draw[edge] (v6)--(v7);
+                        \draw[edge] (v1)--(v2);
+                        \draw[edge] (v2)--(v3);
+                        \draw[edge] (v3)--(v4);
+                        \draw[edge] (v4)--(v5);
+                        \draw[edge] (v5)--(v6);
+                        \draw[edge] (v6)--(v1);
+                        \draw[edge] (v4)--(v8);
+                        \draw[edge] (v4)--(v9);
+                        \draw[edge] (v8)--(v9);
+                    \end{tikzpicture}
+                \column{.5\textwidth}
+                    \centering
+                    \onslide<2->{
+                        \begin{tikzpicture}
+                            \node[cop_vertex] (v1) at (0,1) {1};
+                            \node[cop_vertex] (v2) at (1,0) {2};
+                            \node[cop_vertex] (v3) at (3,0) {3};
+                            \node[cop_vertex] (v4) at (4,1) {4 $y$};
+                            \node[cop_vertex] (v5) at (3,2) {5};
+                            \node[cop_vertex] (v6) at (1,2) {6};
+                            \node[rob_vertex] (v7) at (2,1) {7 $x$};
+                            \node[cop_vertex] (v8) at (5,2) {8};
+                            \node[vertex] (v9) at (5,0) {9 $y\prime$};
+                            
+                            \draw[edge] (v1)--(v7);
+                            \draw[edge] (v2)--(v7);
+                            \draw[edge] (v3)--(v7);
+                            \draw[edge] (v4)--(v7);
+                            \draw[edge] (v5)--(v7);
+                            \draw[edge] (v6)--(v7);
+                            \draw[edge] (v1)--(v2);
+                            \draw[edge] (v2)--(v3);
+                            \draw[edge] (v3)--(v4);
+                            \draw[edge] (v4)--(v5);
+                            \draw[edge] (v5)--(v6);
+                            \draw[edge] (v6)--(v1);
+                            \draw[edge] (v4)--(v8);
+                            \draw[edge] (v4)--(v9);
+                            \draw[edge] (v8)--(v9);
+                        \end{tikzpicture}
+                    }
+            \end{columns}
+        \end{example}  
+    \end{proof}
+\end{frame}
+
+\begin{frame}{Ochroniarze i prezydent}
+    \begin{proof}[Dowód cd. Przypadek 4.]
+        \renewcommand{\qedsymbol}{}
+        Prezydent jest na wierzchołku bez ochroniarzem oraz jeden z sąsiadujących wierzchołków nie ma ochroniarza. Bez straty ogólności załóżmy że prezydent jest na $x$ i sąsiaduje z $y$.
+        Ponieważ $y$ nie jest liściem, istnieje wierzchołek $y\prime$ mający ochroniarza oraz sąsiadujący z $y$.  
+        W pierwszej turze ochroniarzy, ochroniarz z $y\prime$ przejdzie na $y$ co skutkuje okrążeniem prezydenta\dots choć znalazłem inny przypadek.
+        \begin{example}
+            \begin{columns}
+                \column{.5\textwidth}
+                    \centering
+                    \begin{tikzpicture}
+                        \node[cop_vertex] (v1) at (0,1) {1};
+                        \node[cop_vertex] (v2) at (1,0) {2};
+                        \node[cop_vertex] (v3) at (3,0) {3};
+                        \node[vertex] (v4) at (4,1) {4 $y$};
+                        \node[cop_vertex] (v5) at (3,2) {5};
+                        \node[cop_vertex] (v6) at (1,2) {6};
+                        \node[rob_vertex] (v7) at (2,1) {7 $x$};
+                        \node[cop_vertex] (v8) at (5,2) {8};
+                        \node[cop_vertex] (v9) at (5,0) {9 $y\prime$};
+                        
+                        \draw[edge] (v1)--(v7);
+                        \draw[edge] (v2)--(v7);
+                        \draw[edge] (v3)--(v7);
+                        \draw[edge] (v4)--(v7);
+                        \draw[edge] (v5)--(v7);
+                        \draw[edge] (v6)--(v7);
+                        \draw[edge] (v1)--(v2);
+                        \draw[edge] (v2)--(v3);
+                        \draw[edge] (v3)--(v4);
+                        \draw[edge] (v4)--(v5);
+                        \draw[edge] (v5)--(v6);
+                        \draw[edge] (v6)--(v1);
+                        \draw[edge] (v4)--(v8);
+                        \draw[edge] (v4)--(v9);
+                        \draw[edge] (v8)--(v9);
+                    \end{tikzpicture}
+                \column{.5\textwidth}
+                    \centering
+                    \begin{tikzpicture}
+                        \node[cop_vertex] (v1) at (1,0) {1};
+                        \node[cop_vertex] (v2) at (1,1) {2};
+                        \node[rob_vertex] (v3) at (1,2) {3 $x$};
+                        \node[vertex] (v4) at (0,2.5) {4 $y$};
+                        \node[cop_vertex] (v5) at (2,2.5) {5 $y\prime$};
+                        
+                        \draw[edge] (v1)--(v2);
+                        \draw[edge] (v2)--(v3);
+                        \draw[edge] (v3)--(v4);
+                        \draw[edge] (v4)--(v5);
+                        \draw[edge] (v3)--(v5);
+                    \end{tikzpicture}
+            \end{columns}
+        \end{example}  
+    \end{proof}
+\end{frame}
+
+\begin{frame}{Ochroniarze i prezydent}
+    \begin{proof}[Dowód cd. Przypadek 5.1]
+        \renewcommand{\qedsymbol}{}
+        Prezydent jest na wierzchołku z ochroniarzem oraz oba z sąsiadujących wierzchołków nie mają ochroniarza. 
+        Załóżmy że $y$ ma połączenie z $z$ gdzie $z\ne x$ i nie jest to wierzchołek prezydenta.
+        \onslide<2->{
+            W takiej sytuacji ochroniarz na wierzchołku prezydenta może przejść na wierzchołek $x$, 
+            a wierzchołek $y$ można obstawić według strategii z przypadku 4.
+        }
+        \begin{example}
+            \begin{columns}
+                \column{.5\textwidth}
+                    \centering
+                    \begin{tikzpicture}
+                        \node[cop_vertex] (v1) at (0,1) {1};
+                        \node[cop_vertex] (v2) at (1,0) {2};
+                        \node[cop_vertex] (v3) at (3,0) {3};
+                        \node[vertex] (v4) at (4,1) {4 $y$};
+                        \node[vertex] (v5) at (3,2) {5 $x$};
+                        \node[cop_vertex] (v6) at (1,2) {6};
+                        \node[cop_rob_vertex] (v7) at (2,1) {7};
+                        \node[cop_vertex] (v8) at (5,2) {8};
+                        \node[cop_vertex] (v9) at (5,0) {9};
+                        
+                        \draw[edge] (v1)--(v7);
+                        \draw[edge] (v2)--(v7);
+                        \draw[edge] (v3)--(v7);
+                        \draw[edge] (v4)--(v7);
+                        \draw[edge] (v5)--(v7);
+                        \draw[edge] (v6)--(v7);
+                        \draw[edge] (v1)--(v2);
+                        \draw[edge] (v2)--(v3);
+                        \draw[edge] (v3)--(v4);
+                        \draw[edge] (v4)--(v5);
+                        \draw[edge] (v5)--(v6);
+                        \draw[edge] (v6)--(v1);
+                        \draw[edge] (v4)--(v8);
+                        \draw[edge] (v4)--(v9);
+                        \draw[edge] (v8)--(v9);
+                    \end{tikzpicture}
+                \column{.5\textwidth}
+                    \centering
+                    \onslide<2->{
+                        \begin{tikzpicture}
+                            \node[cop_vertex] (v1) at (0,1) {1};
+                            \node[cop_vertex] (v2) at (1,0) {2};
+                            \node[cop_vertex] (v3) at (3,0) {3};
+                            \node[cop_vertex] (v4) at (4,1) {4};
+                            \node[cop_vertex] (v5) at (3,2) {5 };
+                            \node[cop_vertex] (v6) at (1,2) {6};
+                            \node[rob_vertex] (v7) at (2,1) {7 $x$};
+                            \node[vertex] (v8) at (5,2) {8 $y$};
+                            \node[cop_vertex] (v9) at (5,0) {9};
+                            
+                            \draw[edge] (v1)--(v7);
+                            \draw[edge] (v2)--(v7);
+                            \draw[edge] (v3)--(v7);
+                            \draw[edge] (v4)--(v7);
+                            \draw[edge] (v5)--(v7);
+                            \draw[edge] (v6)--(v7);
+                            \draw[edge] (v1)--(v2);
+                            \draw[edge] (v2)--(v3);
+                            \draw[edge] (v3)--(v4);
+                            \draw[edge] (v4)--(v5);
+                            \draw[edge] (v5)--(v6);
+                            \draw[edge] (v6)--(v1);
+                            \draw[edge] (v4)--(v8);
+                            \draw[edge] (v4)--(v9);
+                            \draw[edge] (v8)--(v9);
+                        \end{tikzpicture}
+                    }
+            \end{columns}
+        \end{example}  
+    \end{proof}
+\end{frame}
+
+\begin{frame}{Podziękowania}
+    Chciałbym podziękować Panu dr. inż. Janowi Cychnerskiemu za stworzenie 
+    i udostępnienie stylu \href{https://github.com/jachoo/pg-beamer}{\emph{pg-beamer}}, 
+    co zostało wykorzystane do stworzenia tej prezentacji.\\
+    \url{https://github.com/jachoo/pg-beamer}
+     
 \end{frame}
 
 \setbeamercovered{transparent}
