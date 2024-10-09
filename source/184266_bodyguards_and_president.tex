@@ -112,7 +112,7 @@ W grze można wyróżnić 2 fazy:
                         \end{tikzpicture}
                         \caption{$c\left(G\right) = 2$}
                     }
-                \column{.4\textwidth}
+                \column{.45\textwidth}
                     \centering
                     \onslide<5>{
                         \begin{tikzpicture}
@@ -200,7 +200,7 @@ W grze można wyróżnić 2 fazy:
                         \end{tikzpicture}
                         \caption{$c\left(G\right) = 2$, $\sigma\left(G\right) = 2$}
                     }
-                \column{.4\textwidth}
+                \column{.45\textwidth}
                     \centering
                     \onslide<3>{
                         \begin{tikzpicture}
@@ -690,8 +690,8 @@ W grze można wyróżnić 2 fazy:
                             \node[cop_vertex] (v4) at (4,1) {4};
                             \node[cop_vertex] (v5) at (3,2) {5};
                             \node[cop_vertex] (v6) at (1,2) {6};
-                            \node[rob_vertex] (v7) at (2,1) {7 $x$};
-                            \node[cop_vertex] (v8) at (5,2) {8};
+                            \node[rob_vertex] (v7) at (2,1) {7};
+                            \node[cop_vertex] (v8) at (5,2) {8 $x$};
                             \node[vertex] (v9) at (5,0) {9 $y$};
                             
                             \draw[edge] (v1)--(v7);
@@ -761,10 +761,10 @@ W grze można wyróżnić 2 fazy:
                             \node[cop_vertex] (v1) at (0,1) {1};
                             \node[cop_vertex] (v2) at (1,0) {2};
                             \node[cop_vertex] (v3) at (3,0) {3};
-                            \node[cop_vertex] (v4) at (4,1) {4};
+                            \node[cop_vertex] (v4) at (4,1) {4 $x$};
                             \node[cop_vertex] (v5) at (3,2) {5};
                             \node[cop_vertex] (v6) at (1,2) {6};
-                            \node[rob_vertex] (v7) at (2,1) {7 $x$};
+                            \node[rob_vertex] (v7) at (2,1) {7};
                             \node[cop_vertex] (v8) at (5,2) {8};
                             \node[vertex] (v9) at (5,0) {9 $y$};
                             
@@ -943,7 +943,7 @@ W grze można wyróżnić 2 fazy:
                         \node[vertex] (v5) at (3,2) {5 $x$};
                         \node[cop_vertex] (v6) at (1,2) {6};
                         \node[cop_rob_vertex] (v7) at (2,1) {7};
-                        \node[cop_vertex] (v8) at (5,2) {8};
+                        \node[cop_vertex] (v8) at (5,2) {8 $z$};
                         \node[cop_vertex] (v9) at (5,0) {9};
                         
                         \draw[edge] (v1)--(v7);
@@ -969,11 +969,11 @@ W grze można wyróżnić 2 fazy:
                             \node[cop_vertex] (v1) at (0,1) {1};
                             \node[cop_vertex] (v2) at (1,0) {2};
                             \node[cop_vertex] (v3) at (3,0) {3};
-                            \node[cop_vertex] (v4) at (4,1) {4};
-                            \node[cop_vertex] (v5) at (3,2) {5 };
+                            \node[cop_vertex] (v4) at (4,1) {4 $y$};
+                            \node[cop_vertex] (v5) at (3,2) {5 $x$};
                             \node[cop_vertex] (v6) at (1,2) {6};
-                            \node[rob_vertex] (v7) at (2,1) {7 $x$};
-                            \node[vertex] (v8) at (5,2) {8 $y$};
+                            \node[rob_vertex] (v7) at (2,1) {7};
+                            \node[vertex] (v8) at (5,2) {8 $z$};
                             \node[cop_vertex] (v9) at (5,0) {9};
                             
                             \draw[edge] (v1)--(v7);
@@ -1029,8 +1029,8 @@ W grze można wyróżnić 2 fazy:
 \begin{frame}{Ochroniarze i prezydent}
     \begin{proof}[Dowód cd. Przypadek 5.2 cd]
         \renewcommand{\qedsymbol}{}
-        Niech $\alpha\notin N\left[v_p\right]$ i 
-        $\alpha_1, \alpha_2,\dots, \alpha_(k-2), v_p=\alpha_{k-1}, x=\alpha_k$ będzie ścieżką zawierającą $v_p$.
+        Niech $\alpha_1\notin N\left[v_p\right]$ i 
+        $\alpha_1, \alpha_2,\dots, \alpha_{k-2}, v_p=\alpha_{k-1}, x=\alpha_k$ będzie ścieżką zawierającą $v_p$.
         \onslide<2->{
             Niech $b_i$ oznacza ochroniarza na $\alpha_i$ dla $1\le i\le k-1$. 
             W pierwszej turze ochroniarz $b_i$ przejdzie z $\alpha_i$ na $\alpha_{i+1}$. 
@@ -1167,13 +1167,14 @@ W grze można wyróżnić 2 fazy:
         \pause
         Nie jest to możliwe aby $v$ i $w$ jednocześnie były liśćmi. Można to udowodnić przez sprzeczność.\\
         \pause
-        Jeżeli prezydent znalazł by się w wierzchołku $v$ na początku gry, to po pierwszym ruchu ochroniarzy $w$ miałby ochroniarza.\\
+        Jeżeli prezydent znalazł by się w wierzchołku $v$ na początku gry, to po pierwszym ruchu ochroniarzy $w$ miałby ochroniarza.
+        Na początku gry ustawiliśmy ochroniarzy najpierw na wszystkich liściach.\\
         \pause
         Jeżeli prezydent przeszedł z $u$ do $v$ podczas gry, to jedynie ochroniarz z $v$ przeszedł do $u$.
         W takim przypadku jeżeli $v$ i $w$ nie mają ochroniarza, to kiedy prezydent był na $u$ to nie był otoczony, co przeczy założeniom aktualnego stanu.
         Więc najwyżej jeden z $v$ i $w$ są liścmi.
         \pause
-        \begin{example}[anty]
+        \begin{example}
             \begin{columns}
                 \column{.5\textwidth}
                     \centering
@@ -1190,6 +1191,7 @@ W grze można wyróżnić 2 fazy:
                         \draw[edge] (v2)--(v4);
                         \draw[edge] (v2)--(v5);
                         \draw[edge] (v5)--(v6);
+                        \draw[edge] (v5)--(v3);
                     \end{tikzpicture}
             \end{columns}
         \end{example}  
@@ -1200,11 +1202,11 @@ W grze można wyróżnić 2 fazy:
     \begin{proof}[Dowód cd.]
         Stąd $v$ albo $w$ ma jeden wierzchołek inny niż $u$ mający ochroniarza.\\
         \pause
-        Skoro $\delta\left(u\right)\l n-1$, to bez straty ogólności można założyć, 
+        Skoro $\delta\left(u\right)< n-1$, to bez straty ogólności można założyć, 
         że $w$ ma sąsiada $q$ takiego że $q\notin N\left[u\right]$ jednocześnie posiadającego ochroniarza.
         \pause
         Więc jak prezydent przejdzie z $v$ do $u$, to ochroniach z $u$ przejdzie do $v$, a z $q$ do $w$. 
-        Skoro $\delta\left(u\right)\ne 1$, to najwyżej jeden wierzchołek nie ma ochroniarza. 
+        Skoro $\delta\left(u\right)\ne 1$, to najwyżej jeden liść nie ma ochroniarza. 
         Kończąc, nieważne jak prezydent będzie się poruszał od tego momentu, ochroniarze zawsze mogą go otoczyć.
         Dlatego $n-2$ ochroniarzy może wygrać z prezydentem na $G$ gdy $\Delta\left(G\right)<n-1$.
         \begin{example}
@@ -1232,6 +1234,12 @@ W grze można wyróżnić 2 fazy:
     \end{proof}
 \end{frame}
 
+\begin{frame}{Koniec}
+    \begin{center}
+        {\huge Pytania?}
+    \end{center}
+\end{frame}
+
 \begin{frame}{Podziękowania}
     Chciałbym podziękować Panu dr. inż. Janowi Cychnerskiemu za stworzenie 
     i udostępnienie stylu \href{https://github.com/jachoo/pg-beamer}{\emph{pg-beamer}}, 
@@ -1244,12 +1252,6 @@ W grze można wyróżnić 2 fazy:
 \begin{frame}[allowframebreaks]{Bibliografia}
     \bibliographystyle{plain}
     \bibliography{bibliography.bib}
-\end{frame}
-
-\begin{frame}{Koniec}
-    \begin{center}
-        {\huge Pytania?}
-    \end{center}
 \end{frame}
 
 \begin{frame}{Koniec}
