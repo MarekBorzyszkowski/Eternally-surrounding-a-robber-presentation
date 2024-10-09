@@ -1045,11 +1045,11 @@ W grze można wyróżnić 2 fazy:
                 \column{.5\textwidth}
                     \centering
                     \begin{tikzpicture}
-                        \node[vertex] (v1) at (0,0.5) {1 $\alpha_1$};
+                        \node[cop_vertex] (v1) at (0,0.5) {1 $\alpha_1$};
                         \node[cop_vertex] (v2) at (1,0.5) {2 $\alpha_1$};
                         \node[cop_rob_vertex] (v3) at (2,0.5) {3 $v_p$};
                         \node[vertex] (v4) at (3,0) {4 $y$};
-                        \node[cop_vertex] (v5) at (3,1) {5 $x$};
+                        \node[vertex] (v5) at (3,1) {5 $x$};
                         
                         \draw[edge] (v1)--(v2);
                         \draw[edge] (v2)--(v3);
@@ -1085,13 +1085,77 @@ W grze można wyróżnić 2 fazy:
         oraz istnieje najwyżej jeden liść bez ochroniarza, nie wliczając wierzchołka prezydenta, który może być liściem. \\
         \pause
         W tym momencie prezydent ma 3 możliwe ruchy:
+        \pause
         \begin{enumerate}[<+->]
             \item zostać na miejscu.
             \item Przejść na wierzchołek, który ma sąsiada bez ochroniarza.
             \item Przejść na wierzchołek, który ma 2 sąsiadów bez ochroniarza.
         \end{enumerate} 
         \pause
-        Przez $v$ oznaczmy wierzchołek przed prezydenta, a przez $u$ wierzchołek po ruchu prezydenta.
+        Przez $v$ oznaczmy wierzchołek przed prezydenta, a przez $u$ wierzchołek po ruchu prezydenta.\\
+        Jeżeli $v$ i $u$ to te same wierzchołki, to ochroniarze nie zmieniają swojej pozycji.
+    \end{proof}
+\end{frame}
+
+
+\begin{frame}{Ochroniarze i prezydent}
+    \begin{proof}[Dowód cd.]
+        \renewcommand{\qedsymbol}{}
+        W przypadku kiedy jedynym sąsiadem $u$ bez ochroniarza jest $v$, to po ruchu prezydenta ochroniarz z $u$ przejdzie do $v$.
+        \begin{example}
+            \begin{columns}
+                \column{.33\textwidth}
+                    \centering
+                    \begin{tikzpicture}
+                        \node[vertex] (v1) at (0,0.5) {1};
+                        \node[cop_vertex] (v2) at (0.9,0.5) {2};
+                        \node[rob_vertex] (v3) at (1.8,0.5) {3 $v$};
+                        \node[cop_vertex] (v4) at (2.7,0) {4 $u$};
+                        \node[cop_vertex] (v5) at (2.7,1) {5};
+                        
+                        \draw[edge] (v1)--(v2);
+                        \draw[edge] (v2)--(v3);
+                        \draw[edge] (v3)--(v4);
+                        \draw[edge] (v4)--(v5);
+                        \draw[edge] (v3)--(v5);
+                    \end{tikzpicture}
+
+                \column{.33\textwidth}
+                    \centering
+                    \onslide<2->{
+                        \begin{tikzpicture}
+                            \node[vertex] (v1) at (0,0.5) {1};
+                            \node[cop_vertex] (v2) at (0.9,0.5) {2};
+                            \node[vertex] (v3) at (1.8,0.5) {3 $v$};
+                            \node[cop_rob_vertex] (v4) at (2.7,0) {4 $u$};
+                            \node[cop_vertex] (v5) at (2.7,1) {5};
+                            
+                            \draw[edge] (v1)--(v2);
+                            \draw[edge] (v2)--(v3);
+                            \draw[edge] (v3)--(v4);
+                            \draw[edge] (v4)--(v5);
+                            \draw[edge] (v3)--(v5);
+                        \end{tikzpicture}
+                    }
+                \column{.33\textwidth}
+                    \centering
+                    \onslide<3->{
+                        \begin{tikzpicture}
+                            \node[vertex] (v1) at (0,0.5) {1};
+                            \node[cop_vertex] (v2) at (0.9,0.5) {2};
+                            \node[cop_vertex] (v3) at (1.8,0.5) {3 $v$};
+                            \node[rob_vertex] (v4) at (2.7,0) {4 $u$};
+                            \node[cop_vertex] (v5) at (2.7,1) {5};
+                            
+                            \draw[edge] (v1)--(v2);
+                            \draw[edge] (v2)--(v3);
+                            \draw[edge] (v3)--(v4);
+                            \draw[edge] (v4)--(v5);
+                            \draw[edge] (v3)--(v5);
+                        \end{tikzpicture}
+                    }
+            \end{columns}
+        \end{example}  
     \end{proof}
 \end{frame}
 
